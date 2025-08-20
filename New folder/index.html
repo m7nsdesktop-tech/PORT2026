@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>بورتفوليو | خالد - مصمم جرافيك</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="text-gray-200">
+    <nav
+      id="navbar"
+      class="fixed top-0 right-0 left-0 z-50 transition-all duration-300"
+    >
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <a href="#" class="text-2xl font-bold gradient-text">خالد</a>
+          <div class="hidden md:flex space-x-8 space-x-reverse">
+            <a href="#about" class="nav-link">عني</a>
+            <a href="#services" class="nav-link">خدماتي</a>
+            <a href="#portfolio" class="nav-link">أعمالي</a>
+            <a href="#contact" class="nav-link">تواصل معي</a>
+          </div>
+          <div class="md:hidden">
+            <button
+              id="mobile-menu-button"
+              class="text-white focus:outline-none"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div id="mobile-menu" class="mobile-menu-overlay">
+      <div class="flex flex-col items-center justify-center h-full space-y-8">
+        <a href="#about" class="mobile-link">عني</a>
+        <a href="#services" class="mobile-link">خدماتي</a>
+        <a href="#portfolio" class="mobile-link">أعمالي</a>
+        <a href="#contact" class="mobile-link">تواصل معي</a>
+      </div>
+    </div>
+
+    <header
+      id="home"
+      class="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
+      <div id="particles-js"></div>
+      <div class="container mx-auto px-6 py-24 text-center z-10">
+        <h1
+          class="text-4xl md:text-6xl font-extrabold leading-tight mb-4"
+          data-aos="fade-down"
+        >
+          مصمم جرافيك متخصص في <br class="hidden md:block" />
+          <span id="typed-text" class="gradient-text"></span>
+        </h1>
+        <p
+          class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          أُترجم أفكار العلامات التجارية إلى تصاميم بصرية مبتكرة لا تُنسى.
+        </p>
+        <a
+          href="#portfolio"
+          class="gradient-btn text-white font-bold py-3 px-8 rounded-full inline-block"
+          data-aos="zoom-in"
+          data-aos-delay="400"
+        >
+          شاهد أعمالي
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section id="portfolio" class="py-20 bg-gray-800/50">
+        <div class="container mx-auto px-6">
+          <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">أبرز أعمالي</h2>
+            <div class="w-24 h-1 title-underline mx-auto"></div>
+          </div>
+
+          <div
+            id="filter-buttons"
+            class="flex justify-center space-x-4 space-x-reverse mb-10"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <button class="filter-btn active" data-filter="all">الكل</button>
+            <button class="filter-btn" data-filter="logo">شعارات</button>
+            <button class="filter-btn" data-filter="branding">
+              هويات بصرية
+            </button>
+          </div>
+
+          <div
+            id="portfolio-grid"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            <div
+              class="portfolio-item card-3d"
+              data-category="logo"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
+              <img
+                src="https://i.pinimg.com/736x/da/99/4a/da994a4465aa7ea61959c183aec32799.jpg"
+                alt="شعار مطعم شواية صويلح"
+                class="portfolio-image"
+              />
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-cyan-400 mb-2">
+                  شعار لمطعم شواية صويلح
+                </h3>
+                <p class="text-gray-400">
+                  تصميم شعار لمطعم متخصص في الشواء على الطريقة التقليدية.
+                </p>
+              </div>
+            </div>
+            <div
+              class="portfolio-item card-3d"
+              data-category="branding"
+              data-aos="zoom-in"
+              data-aos-delay="200"
+            >
+              <img
+                src="https://i.pinimg.com/736x/26/e6/b7/26e6b71e136eff55c2d4d7cdfd684081.jpg"
+                alt="هوية بصرية كاملة"
+                class="portfolio-image"
+              />
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-cyan-400 mb-2">
+                  إنتاج هوية بصرية كاملة
+                </h3>
+                <p class="text-gray-400">
+                  بناء هوية بصرية متكاملة لعلامة تجارية ناشئة.
+                </p>
+              </div>
+            </div>
+            <div
+              class="portfolio-item card-3d"
+              data-category="branding"
+              data-aos="zoom-in"
+              data-aos-delay="300"
+            >
+              <img
+                src="https://i.pinimg.com/736x/f0/70/4d/f0704dc39decfae63f67166864c543e7.jpg"
+                alt="هوية بصرية لعبايات جواهر"
+                class="portfolio-image"
+              />
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-cyan-400 mb-2">
+                  إعادة إنتاج هوية لعبايات جواهر
+                </h3>
+                <p class="text-gray-400">
+                  تحديث الهوية البصرية لعلامة تجارية متخصصة في العبايات الفاخرة.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-gray-800/50 py-6">
+      <div class="container mx-auto px-6 text-center text-gray-400">
+        <p>جميع الحقوق محفوظة &copy; <span id="year"></span> | خالد</p>
+      </div>
+    </footer>
+
+    <a
+      href="#"
+      id="to-top-btn"
+      class="gradient-btn text-white p-3 rounded-full shadow-lg"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 15l7-7 7 7"
+        ></path>
+      </svg>
+    </a>
+
+    <script
+      src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"
+      defer
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" defer></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>
