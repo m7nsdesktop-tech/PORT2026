@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>بورتفوليو | خالد - مصمم جرافيك</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts (Tajawal) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS Animate On Scroll Library CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Custom Styles -->
+    <style>
+      body {
+        font-family: "Tajawal", sans-serif;
+        scroll-behavior: smooth;
+        background-color: #0a0f1f; /* Darker blue background */
+      }
+
+      /* Particles.js background */
+      #particles-js {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 0;
+      }
+      header .container {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Gradient Text */
+      .gradient-text {
+        background: linear-gradient(45deg, #2dd4bf, #38bdf8, #818cf8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        background-size: 200% 200%;
+        animation: gradient-animation 5s ease infinite;
+      }
+
+      @keyframes gradient-animation {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Gradient background for buttons */
+      .gradient-btn {
+        background-image: linear-gradient(
+          to right,
+          #06b6d4 0%,
+          #3b82f6 51%,
+          #06b6d4 100%
+        );
+        background-size: 200% auto;
+        transition: all 0.5s;
+        box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+      }
+      .gradient-btn:hover {
+        background-position: right center;
+        transform: scale(1.05);
+      }
+
+      /* Enhanced hover effect for cards with 3D tilt */
+      .card-3d {
+        transition: all 0.3s ease-in-out;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .card-3d:hover {
+        transform: translateY(-10px) scale(1.03);
+        box-shadow: 0 25px 40px -5px rgba(6, 182, 212, 0.2);
+        border-color: #06b6d4;
+      }
+
+      /* Gradient for section title underlines */
+      .title-underline {
+        background: linear-gradient(to right, #2dd4bf, #38bdf8);
+      }
+
+      /* Custom glow effect for personal image */
+      .image-glow {
+        box-shadow: 0 0 30px rgba(45, 212, 191, 0.6),
+          0 0 60px rgba(56, 189, 248, 0.4);
+      }
+
+      /* Scrolled Navbar Style */
+      .nav-scrolled {
+        background-color: rgba(17, 24, 39, 0.95);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+
+      /* Back to top button */
+      #to-top-btn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        z-index: 99;
+      }
+
+      /* Mobile Menu */
+      #mobile-menu {
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+      }
+      #mobile-menu.active {
+        transform: translateX(0);
+      }
+    </style>
+  </head>
+  <body class="text-gray-200">
+    <!-- ======== الشريط العلوي (Navbar) ======== -->
+    <nav
+      id="navbar"
+      class="fixed top-0 right-0 left-0 z-50 transition-all duration-300"
+    >
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <a href="#" class="text-2xl font-bold gradient-text">خالد</a>
+          <div class="hidden md:flex space-x-8 space-x-reverse">
+            <a
+              href="#about"
+              class="hover:text-cyan-400 transition-colors duration-300"
+              >عني</a
+            >
+            <a
+              href="#services"
+              class="hover:text-cyan-400 transition-colors duration-300"
+              >خدماتي</a
+            >
+            <a
+              href="#experience"
+              class="hover:text-cyan-400 transition-colors duration-300"
+              >خبراتي</a
+            >
+            <a
+              href="#portfolio"
+              class="hover:text-cyan-400 transition-colors duration-300"
+              >أعمالي</a
+            >
+            <a
+              href="#contact"
+              class="hover:text-cyan-400 transition-colors duration-300"
+              >تواصل معي</a
+            >
+          </div>
+          <div class="md:hidden">
+            <button
+              id="mobile-menu-button"
+              class="text-white focus:outline-none"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ======== Mobile Menu Overlay ======== -->
+    <div
+      id="mobile-menu"
+      class="fixed top-0 right-0 h-full w-full bg-gray-900/95 backdrop-blur-sm z-40 md:hidden"
+    >
+      <div class="flex flex-col items-center justify-center h-full space-y-8">
+        <a
+          href="#about"
+          class="text-2xl hover:text-cyan-400 transition-colors duration-300 mobile-link"
+          >عني</a
+        >
+        <a
+          href="#services"
+          class="text-2xl hover:text-cyan-400 transition-colors duration-300 mobile-link"
+          >خدماتي</a
+        >
+        <a
+          href="#experience"
+          class="text-2xl hover:text-cyan-400 transition-colors duration-300 mobile-link"
+          >خبراتي</a
+        >
+        <a
+          href="#portfolio"
+          class="text-2xl hover:text-cyan-400 transition-colors duration-300 mobile-link"
+          >أعمالي</a
+        >
+        <a
+          href="#contact"
+          class="text-2xl hover:text-cyan-400 transition-colors duration-300 mobile-link"
+          >تواصل معي</a
+        >
+      </div>
+    </div>
+
+    <!-- ======== القسم الرئيسي (Hero Section) ======== -->
+    <header
+      class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900"
+    >
+      <div id="particles-js"></div>
+      <div class="container mx-auto px-6 py-24 text-center">
+        <h1
+          class="text-4xl md:text-6xl font-extrabold leading-tight mb-4"
+          data-aos="fade-down"
+        >
+          مصمم جرافيك متخصص في <br class="hidden md:block" />
+          <span id="typed-text" class="gradient-text"></span>
+        </h1>
+        <p
+          class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          أُترجم أفكار العلامات التجارية إلى تصاميم بصرية مبتكرة لا تُنسى.
+        </p>
+        <a
+          href="#portfolio"
+          class="gradient-btn text-white font-bold py-3 px-8 rounded-full inline-block"
+          data-aos="zoom-in"
+          data-aos-delay="400"
+          >شاهد أعمالي</a
+        >
+      </div>
+    </header>
+
+    <!-- ======== قسم "عني" (About Me) ======== -->
+    <section id="about" class="py-20 bg-gray-900">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">نبذة عني</h2>
+          <div class="w-24 h-1 title-underline mx-auto"></div>
+        </div>
+        <div class="flex flex-col md:flex-row items-center gap-10">
+          <div class="md:w-1/3 text-center" data-aos="fade-right">
+            <img
+              src="https://placehold.co/400x400/1a202c/76e4f7?text=صورتك+الشخصية"
+              alt="صورة شخصية"
+              class="rounded-full w-64 h-64 mx-auto shadow-2xl border-4 border-cyan-400 image-glow"
+            />
+          </div>
+          <div class="md:w-2/3 text-center md:text-right" data-aos="fade-left">
+            <p class="text-gray-300 text-lg leading-relaxed">
+              أهلاً بك! أنا خالد، مصمم جرافيك شغوف، أجد متعتي في بناء الهويات
+              البصرية المتكاملة وتصميم الشعارات التي تروي قصة كل علامة تجارية.
+              أمتلك خبرة واسعة في استخدام برنامج Adobe Illustrator، وأسعى دائماً
+              لتحويل الأفكار المجردة إلى تصاميم مرئية جذابة وفعالة. أؤمن بأن
+              التصميم الجيد هو جسر التواصل بين الشركات وعملائها.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== قسم "خدماتي" (Services) ======== -->
+    <section id="services" class="py-20 bg-gray-800/50">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">ماذا أقدم؟</h2>
+          <div class="w-24 h-1 title-underline mx-auto"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="bg-gray-800 p-8 rounded-lg text-center shadow-lg card-3d"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="mb-4">
+              <svg
+                class="w-16 h-16 text-cyan-400 mx-auto"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">الهويات البصرية المتكاملة</h3>
+            <p class="text-gray-400">
+              تصميم هوية بصرية كاملة تعكس رؤية علامتك التجارية، تشمل الألوان،
+              الخطوط، والأسلوب العام.
+            </p>
+          </div>
+          <div
+            class="bg-gray-800 p-8 rounded-lg text-center shadow-lg card-3d"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="mb-4">
+              <svg
+                class="w-16 h-16 text-cyan-400 mx-auto"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">تصميم الشعارات الاحترافية</h3>
+            <p class="text-gray-400">
+              ابتكار شعارات فريدة ومعبرة، تكون حجر الأساس لهويتك التجارية وتترك
+              انطباعاً قوياً.
+            </p>
+          </div>
+          <div
+            class="bg-gray-800 p-8 rounded-lg text-center shadow-lg card-3d"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="mb-4">
+              <svg
+                class="w-16 h-16 text-cyan-400 mx-auto"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">خبرة في Adobe Illustrator</h3>
+            <p class="text-gray-400">
+              استخدام احترافي لأقوى برامج التصميم لضمان جودة عالية ودقة لا
+              متناهية في جميع أعمالي.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== قسم "خبراتي ومهاراتي" (Experience) ======== -->
+    <section id="experience" class="py-20 bg-gray-900">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">خبراتي ومهاراتي</h2>
+          <div class="w-24 h-1 title-underline mx-auto"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="bg-gray-800 p-8 rounded-lg text-center shadow-lg card-3d"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="mb-4">
+              <svg
+                class="w-16 h-16 text-cyan-400 mx-auto"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">التغذية البصرية</h3>
+            <p class="text-gray-400">
+              خبرة طويلة في تحليل الاتجاهات الفنية ودراسة التصاميم العالمية، مما
+              يمنحني رؤية واسعة لابتكار أعمال فريدة.
+            </p>
+          </div>
+          <div
+            class="bg-gray-800 p-8 rounded-lg text-center shadow-lg card-3d"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="mb-4">
+              <svg
+                class="w-16 h-16 text-cyan-400 mx-auto"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">تناسق الألوان</h3>
+            <p class="text-gray-400">
+              إتقان كامل لنظرية الألوان والقدرة على اختيار لوحات لونية مؤثرة
+              تعزز من رسالة التصميم وتجذب الانتباه.
+            </p>
+          </div>
+          <div
+            class="bg-gray-800 p-8 rounded-lg text-center shadow-lg card-3d"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="mb-4">
+              <svg
+                class="w-16 h-16 text-cyan-400 mx-auto"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                <path
+                  d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-5.998 12.078 12.078 0 01.665-6.479L12 14z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-5.998 12.078 12.078 0 01.665-6.479L12 14z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">تطوير مستمر</h3>
+            <p class="text-gray-400">
+              صقلت مهاراتي بدورات متقدمة مع المصمم العالمي
+              <span class="font-semibold text-white">Ben Marriott</span>،
+              لمواكبة أحدث التقنيات والأساليب في عالم التصميم.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== قسم "أعمالي" (Portfolio) ======== -->
+    <section id="portfolio" class="py-20 bg-gray-800/50">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">أبرز أعمالي</h2>
+          <div class="w-24 h-1 title-underline mx-auto"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="bg-gray-800 rounded-lg overflow-hidden shadow-xl card-3d"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <img
+              src="https://i.pinimg.com/736x/da/99/4a/da994a4465aa7ea61959c183aec32799.jpg"
+              alt="شعار مطعم شواية صويلح"
+              class="w-full h-64 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-cyan-400 mb-2">
+                تصميم شعار لمطعم شواية صويلح
+              </h3>
+              <p class="text-gray-400">
+                تصميم شعار وهوية بصرية لمطعم متخصص في الشواء على الطريقة
+                التقليدية.
+              </p>
+            </div>
+          </div>
+          <div
+            class="bg-gray-800 rounded-lg overflow-hidden shadow-xl card-3d"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <img
+              src="https://i.pinimg.com/736x/26/e6/b7/26e6b71e136eff55c2d4d7cdfd684081.jpg"
+              alt="هوية بصرية كاملة"
+              class="w-full h-64 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-cyan-400 mb-2">
+                إنتاج هوية بصرية كاملة
+              </h3>
+              <p class="text-gray-400">
+                بناء هوية بصرية متكاملة لعلامة تجارية، تشمل الشعار، الألوان،
+                والنمط البصري العام.
+              </p>
+            </div>
+          </div>
+          <div
+            class="bg-gray-800 rounded-lg overflow-hidden shadow-xl card-3d"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
+            <img
+              src="https://i.pinimg.com/736x/f0/70/4d/f0704dc39decfae63f67166864c543e7.jpg"
+              alt="هوية بصرية لعبايات جواهر"
+              class="w-full h-64 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-cyan-400 mb-2">
+                إعادة إنتاج هوية بصرية لعبايات جواهر
+              </h3>
+              <p class="text-gray-400">
+                تحديث وإعادة تصميم الهوية البصرية لعلامة تجارية متخصصة في
+                العبايات الفاخرة.
+              </p>
+            </div>
+          </div>
+          <div
+            class="bg-gray-800 rounded-lg overflow-hidden shadow-xl card-3d"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <img
+              src="https://i.pinimg.com/736x/9d/d4/07/9dd407b8b7ffd69d59ed2d96f575bb14.jpg"
+              alt="شعار مشروب دبليو"
+              class="w-full h-64 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-cyan-400 mb-2">
+                إعادة انتاج شعار لمشروب دبليو
+              </h3>
+              <p class="text-gray-400">
+                إعادة تصميم شعار لمشروب طاقة بأسلوب عصري وجذاب يستهدف فئة
+                الشباب.
+              </p>
+            </div>
+          </div>
+          <div
+            class="bg-gray-800 rounded-lg overflow-hidden shadow-xl card-3d"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <img
+              src="https://i.pinimg.com/736x/46/d2/3a/46d23ac1f3a3d4d919f344e5ed06c3cd.jpg"
+              alt="شعار موقع امسفن"
+              class="w-full h-64 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-cyan-400 mb-2">
+                شعار لموقع امسفن
+              </h3>
+              <p class="text-gray-400">
+                تصميم شعار مبتكر لمنصة إلكترونية، يجمع بين البساطة والتميز
+                التقني.
+              </p>
+            </div>
+          </div>
+          <div
+            class="bg-gray-800 rounded-lg overflow-hidden shadow-xl card-3d"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
+            <img
+              src="https://i.pinimg.com/736x/bb/ed/55/bbed55e74737c8005108cb649ebcca64.jpg"
+              alt="هوية بصرية لعبايات جواهر"
+              class="w-full h-64 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-cyan-400 mb-2">
+                هوية بصرية لعبايات جواهر
+              </h3>
+              <p class="text-gray-400">
+                تصميم هوية بصرية راقية لعلامة تجارية متخصصة في العبايات، تعكس
+                الأناقة والفخامة.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== قسم "تواصل معي" (Contact) ======== -->
+    <section id="contact" class="py-20 bg-gray-900">
+      <div class="container mx-auto px-6 text-center" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">هل لديك فكرة مشروع؟</h2>
+        <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
+          لنتحدث عنها! أنا متحمس دائمًا للعمل على مشاريع جديدة ومبتكرة. تواصل
+          معي لنبدأ رحلة الإبداع معاً.
+        </p>
+        <a
+          href="https://wa.me/9665XXXXXXXX"
+          target="_blank"
+          class="gradient-btn text-white font-bold py-3 px-8 rounded-full inline-block"
+        >
+          تواصل معي عبر الواتساب
+        </a>
+      </div>
+    </section>
+
+    <!-- ======== التذييل (Footer) ======== -->
+    <footer class="bg-gray-800/50 py-6">
+      <div class="container mx-auto px-6 text-center text-gray-400">
+        <p>جميع الحقوق محفوظة &copy; <span id="year"></span> | خالد</p>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a
+      href="#"
+      id="to-top-btn"
+      class="gradient-btn text-white p-3 rounded-full shadow-lg"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 15l7-7 7 7"
+        ></path>
+      </svg>
+    </a>
+
+    <!-- Particles.js, Typed.js, AOS JS -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+
+      // Initialize Particles.js
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 60, density: { enable: true, value_area: 800 } },
+          color: { value: "#2dd4bf" },
+          shape: { type: "circle" },
+          opacity: { value: 0.5, random: false },
+          size: { value: 3, random: true },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#38bdf8",
+            opacity: 0.4,
+            width: 1,
+          },
+          move: {
+            enable: true,
+            speed: 2,
+            direction: "none",
+            random: false,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+          },
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: { enable: true, mode: "grab" },
+            onclick: { enable: true, mode: "push" },
+            resize: true,
+          },
+          modes: {
+            grab: { distance: 140, line_linked: { opacity: 1 } },
+            push: { particles_nb: 4 },
+          },
+        },
+        retina_detect: true,
+      });
+
+      // Initialize Typed.js
+      new Typed("#typed-text", {
+        strings: [
+          "الهويات البصرية",
+          "الشعارات الاحترافية",
+          "التصاميم المبتكرة",
+        ],
+        typeSpeed: 70,
+        backSpeed: 50,
+        backDelay: 2000,
+        loop: true,
+      });
+
+      // Navbar scroll effect
+      const navbar = document.getElementById("navbar");
+      window.onscroll = () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add("nav-scrolled");
+        } else {
+          navbar.classList.remove("nav-scrolled");
+        }
+      };
+
+      // Back to top button logic
+      const toTopBtn = document.getElementById("to-top-btn");
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          toTopBtn.style.display = "block";
+        } else {
+          toTopBtn.style.display = "none";
+        }
+      });
+
+      // 3D Tilt Effect for Cards
+      const cards = document.querySelectorAll(".card-3d");
+      cards.forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const { width, height } = rect;
+          const rotateX = (y / height - 0.5) * -15; // Max rotation 7.5 deg
+          const rotateY = (x / width - 0.5) * 15; // Max rotation 7.5 deg
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px) scale(1.03)`;
+        });
+        card.addEventListener("mouseleave", () => {
+          card.style.transform =
+            "perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)";
+        });
+      });
+
+      // Mobile Menu Toggle
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mobileLinks = document.querySelectorAll(".mobile-link");
+
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("active");
+      });
+
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("active");
+        });
+      });
+
+      // Update year in footer
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
